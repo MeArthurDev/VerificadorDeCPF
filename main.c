@@ -47,10 +47,8 @@ int verificaCPF(){
     }
     printf("O cpf é válido! ;)");
     getch();
-
     return 0;
 }
-
 void menu(){
     system("cls");
     int op;
@@ -72,7 +70,6 @@ void menu(){
         break;
     }
 }
-
 void main(){
     setlocale(LC_ALL,"Portuguese");
     menu();

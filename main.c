@@ -3,9 +3,7 @@
 #include<conio.h>
 #include<locale.h>
 
-void menu();
-
-void verificaCPF(){
+int verificaCPF(){
     system("cls");
 
     char cpf[50];
@@ -21,6 +19,7 @@ void verificaCPF(){
     for(int i=0;i<9;i++){
         if(cpf[i]<'0' || cpf[i]>'9'){
             printf("O cpf não pode conter caracteres!(Pressione qualquer botão)");
+            getch();
             verificaCPF();
         }
         soma += j*(cpf[i]-'0');
@@ -41,10 +40,15 @@ void verificaCPF(){
     
     if(resto>=2)decimoPrimeiroDigito = 11 - resto;
 
-    if(decimoDigito == (cpf[9]-'0') && decimoPrimeiroDigito == (cpf[10]-'0')) printf("O cpf é válido! ;)");
-    else printf("O cpf não é valido! :(");
-
+    if(decimoDigito != (cpf[9]-'0') || decimoPrimeiroDigito != (cpf[10]-'0')) {
+        printf("O cpf não é valido! :(");
+        getch();
+        return 0;
+    }
+    printf("O cpf é válido! ;)");
     getch();
+
+    return 0;
 }
 
 void menu(){
